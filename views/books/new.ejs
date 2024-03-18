@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New Book</h2>
+<form action="/books" method="POST">
+    <label>Book Name:
+        <input type="text" name="name">
+    </label><br>
+    <label>Author:
+        <input type="text" name="author">
+    </label><br>
+    <label>Start Date:
+        <input type="date" name="startDate">
+    </label><br>
+    <label>End Date:
+        <input type="date" name="endDate">
+    </label><br>
+    <button type="submit">Add Movie</button>
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
