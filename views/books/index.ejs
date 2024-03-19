@@ -15,8 +15,8 @@
             <tr>
                 <td><%= b.name %></td>
                 <td><%= b.author %></td>
-                <td><%= b.startDate.toString().slice(0, 15) %></td>
-                <td><%= b.endDate.toString().slice(0, 15) %></td>
+                <td><%= b.startDate %></td>
+                <td><%= b.endDate %></td>
                 <td><a href="/books/<%= b._id %>">DETAILS</a></td>
             </tr>
         <% }) %>

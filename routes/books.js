@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const booksCtrl = require('../controllers/books');
-const books = require('../controllers/books');
 
 /* GET users listing. */
 router.get('/', booksCtrl.index)

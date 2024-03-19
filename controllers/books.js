@@ -9,11 +9,16 @@ module.exports = {
 
 async function index(req, res) {
     const books = await Book.find({})
-    res.render('books/index', { title: 'All Books', books})
+    res.render('books/index', { 
+        title: 'All Books', 
+        books
+    })
 }
 
 function newBook(req, res) {
-    res.render('books/new', { errorMsg: '' })
+    res.render('books/new', { 
+        errorMsg: '' 
+    })
 }
 
 async function create(req, res) {
@@ -23,7 +28,9 @@ async function create(req, res) {
         res.redirect('books')
     } catch(err) {
         console.log(err)
-        res.render('books/new'), { errorMsg: err.message }
+        res.render('books/new'), { 
+            errorMsg: err
+        }
     }
 }
 

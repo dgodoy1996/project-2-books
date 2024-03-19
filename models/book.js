@@ -3,18 +3,26 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const synopsisSchema = new Schema ({
-    content: String,
-    rating: Number
+    ratings: Number,
+    synopsis: String,
 }, {
     timestamps: true
 })
 
 const bookSchema = new Schema ({
-    name: String,
-    author: String,
+    name: {
+        type: String,
+        required: true,
+        default: 'No Book Name'
+    },
+    author: {
+        type: String,
+        required: true,
+        default: 'No Author'
+    },
     startDate: Date,
     endDate: Date,
-    synopsis: [synopsisSchema]
+    synopsis: [synopsisSchema],
 })
 
 module.exports = mongoose.model('Book', bookSchema)
