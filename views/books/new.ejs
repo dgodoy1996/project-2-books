@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>Enter a New Book</h2>
+<h2>Enter a Read Book</h2>
 <form id="new-book" action="/books" method="POST">
     <label>Book Name:
         <input type="text" name="name">
@@ -14,8 +14,10 @@
     <label>End Date:
         <input type="date" name="endDate">
     </label><br>
-    <button type="submit">Add Movie</button>
+    <button type="submit">Add Book</button>
 </form>
 <p><%= errorMsg %></p>
+
+
 
 <%- include('../partials/footer') %>

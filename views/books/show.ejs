@@ -6,50 +6,65 @@
     <div>Author</div>
     <div><%= book.author %></div>
     <div>Start Date</div>
-    <div><%= book.startDate %></div>
+    <div><%= book.startDate.toString().slice(0, 15) %></div>
     <div>End Date</div>
-    <div><%= book.endDate %></div>
+    <div><%= book.endDate.toString().slice(0, 15) %></div>
 </section>
 
-<br><br>
-<form id="add-synopsis-form" method="POST" action="/books/<%= book._id %>/synopsis">
-    <h3>What would you rate this book?</h3>
-    <label>Rating</label>
-    <select name="ratings">
+
+    <br><br>
+    <form id="add-synopsis-form" method="POST" action="/books/<%= book._id %>/synopsis">
+    <% if (user) { %>
+        <h3>What would you rate this book?</h3>
+        <label>Rating</label>
+        <select name="ratings">
+        <option value="-">-</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-    </select>
-    <br><br><h3>Would you like to provide your own synopsis?</h3>
-    <label>Synopsis</label>
-    <textarea name="synopsis"></textarea>
-    <br><br><input type="submit" value="Submit">
-</form>
+        </select>
+        <br><br><h3>Would you like to provide your own synopsis?</h3>
+        <label>Synopsis</label>
+        <textarea name="synopsis"></textarea>
+        <br><br><input type="submit" value="Submit">
+        </form>
+    <% } %>
 
-<br><br>
-<% if(book.synopsis.length) { %>
+    <br><br>
+    <% if(book.synopsis.length) { %>
     <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Rating</th>
-                <th>Synposis</th>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Synposis</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% book.synopsis.forEach(function(b) { %>
+        <tr>
+            <td class="synopsis-user"><img alt="avatar" src="<%= b.userAvatar %>" referrerpolicy="no-referrer" ><%= b.userName %></td>
+            <td><%= b.createdAt.toLocaleDateString() %></td>
+            <td><%= b.ratings %></td>
+            <td><%= b.synopsis %></td>
+            <td>
+                <% if(user) { %>
+                    <form action="/synopsis/<%= b._id %>?_method=DELETE" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                    <% } %>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <% book.synopsis.forEach(function(b) { %>
-                <tr>
-                    <td><%= b.createdAt.toLocaleDateString() %></td>
-                    <td><%= b.ratings %></td>
-                    <td><%= b.synopsis %></td>
-                </tr>
             <% }) %>
         </tbody>
     </table>
-<% } else { %>
-    <h5>No Synopsis Yet</h5>
-<% } %>
+    <% } else { %>
+        <% if (user) { %>
+            <h5>No Synopsis Yet</h5>
+        <% } %>
+    <% } %>                 
 
 <%- include('../partials/footer') %>

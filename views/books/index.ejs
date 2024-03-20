@@ -1,26 +1,30 @@
 <%- include('../partials/header') %>
 
-<h2>Books</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Book Name:</th>
-            <th>Author:</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% books.forEach(function(b) { %>
+<% if(user) { %>
+    <h2>Read Books</h2>
+    <table>
+        <thead>
             <tr>
-                <td><%= b.name %></td>
-                <td><%= b.author %></td>
-                <td><%= b.startDate %></td>
-                <td><%= b.endDate %></td>
-                <td><a href="/books/<%= b._id %>">DETAILS</a></td>
+                <th>Book Name:</th>
+                <th>Author:</th>
+                <th>Start Date</th>
+                <th>End Date</th>
             </tr>
-        <% }) %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% books.forEach(function(b) { %>
+                <tr>
+                    <td><%= b.name %></td>
+                    <td><%= b.author %></td>
+                    <td><%= b.startDate.toString().slice(0, 15) %></td>
+                    <td><%= b.endDate.toString().slice(0, 15) %></td>
+                    <td><a href="/books/<%= b._id %>">DETAILS</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h2>Log in to view your books!</h2>
+<% } %>
 
 <%- include('../partials/footer') %>
