@@ -4,7 +4,7 @@ module.exports = {
     index,
     new: newBook,
     create,
-    show,
+    show
 }
 
 async function index(req, res) {
@@ -18,16 +18,20 @@ async function index(req, res) {
 function newBook(req, res) {
     res.render('books/new', { 
         title: 'All Books',
-        errorMsg: '' 
+        errorMsg: ''
     })
 }
 
 async function create(req, res) {
     console.log(req.body)
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+    }
     req.body.user = req.session.passport.user
+
     try {
         await Book.create(req.body)
-        res.redirect('books')
+        res.redirect('/books')
     } catch(err) {
         console.log(err)
         res.render('books/new'), { 
@@ -44,4 +48,3 @@ async function show(req, res) {
         user: req.session?.passport?.user
     })
 }
-
