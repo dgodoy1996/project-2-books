@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Book Name</div>
+    <div>Book Name:</div>
     <div><%= book.name %></div>
-    <div>Author</div>
+    <div>Author:</div>
     <div><%= book.author %></div>
-    <div>Start Date</div>
+    <div>Start Date:</div>
     <div><%= book.startDate.toString().slice(0, 15) %></div>
-    <div>End Date</div>
+    <div>End Date:</div>
     <div><%= book.endDate.toString().slice(0, 15) %></div>
 </section>
 
@@ -55,6 +55,9 @@
                     <form action="/synopsis/<%= b._id %>?_method=DELETE" method="POST">
                         <button type="submit">X</button>
                     </form>
+                    <a href="/synopsis/<%= b._id %>/edit">
+                        <button type="submit">Edit Synopsis</button>
+                    </a>
                     <% } %>
                 </td>
             </tr>

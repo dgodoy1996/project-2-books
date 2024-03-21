@@ -18,7 +18,14 @@
                     <td><%= b.author %></td>
                     <td><%= b.startDate.toString().slice(0, 15) %></td>
                     <td><%= b.endDate.toString().slice(0, 15) %></td>
-                    <td><a href="/books/<%= b._id %>">DETAILS</a></td>
+                    <td>
+                        <a href="/books/<%= b._id %>">DETAILS</a>
+                    </td>
+                    <td>
+                        <form action="/books/<%= b._id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
         </tbody>

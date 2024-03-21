@@ -8,5 +8,6 @@ router.get('/', booksCtrl.index)
 router.get('/new', ensureLoggedIn, booksCtrl.new)
 router.get('/:id', booksCtrl.show)
 router.post('/', ensureLoggedIn, booksCtrl.create)
+router.delete('/:id', ensureLoggedIn, booksCtrl.delete)
 
 module.exports = router;

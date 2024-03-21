@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<form id="add-synopsis-form" method="POST" action="/synopsis/<%= synopsis._id %>?_method=PUT">
+    <% if (user) { %>
+        <br><br><h3>Update your synopsis?</h3>
+        <label>Synopsis</label>
+        <textarea name="synopsis"><%= synopsis.synopsis %></textarea>
+        <br><br><input type="submit" value="Submit">
+    <% } %>
+</form>
+    
+ <%- include('../partials/footer') %>

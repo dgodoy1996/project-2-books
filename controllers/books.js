@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newBook,
     create,
-    show
+    show, 
+    delete: deleteBook
 }
 
 async function index(req, res) {
@@ -48,3 +49,10 @@ async function show(req, res) {
         user: req.session?.passport?.user
     })
 }
+
+async function deleteBook(req, res) {
+    await Book.findByIdAndDelete(req.params.id)
+
+    res.redirect('/books')
+}
+
