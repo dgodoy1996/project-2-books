@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<h2>Book Details:</h2>
 <section id="show-page">
     <div>Book Name:</div>
     <div><%= book.name %></div>
@@ -16,7 +16,6 @@
     <form id="add-synopsis-form" method="POST" action="/books/<%= book._id %>/synopsis">
     <% if (user) { %>
         <h3>What would you rate this book?</h3>
-        <label>Rating</label>
         <select name="ratings">
         <option value="-">-</option>
         <option value="👍🏼">👍🏼</option>
@@ -26,7 +25,6 @@
         <option value="👍🏼👍🏼👍🏼👍🏼👍🏼">👍🏼👍🏼👍🏼👍🏼👍🏼</option>
         </select>
         <br><br><h3>Would you like to provide your own synopsis?</h3>
-        <label>Synopsis</label>
         <textarea name="synopsis"></textarea>
         <br><br><input type="submit" value="Submit">
         </form>

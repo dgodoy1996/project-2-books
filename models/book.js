@@ -30,8 +30,18 @@ const bookSchema = new Schema ({
         required: true,
         default: 'No Author'
     },
-    startDate: Date,
-    endDate: Date,
+    startDate: {
+        type: Date,
+        default: function() {
+            return new Date()
+        }
+    },
+    endDate: {
+        type: Date,
+        default: function() {
+            return new Date()
+        }
+    },
     synopsis: [synopsisSchema],
 })
 
