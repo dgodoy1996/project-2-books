@@ -15,11 +15,14 @@ My Reads is a great app that can track all your favorite reads! Just simply ente
 
 # Technologies Used
 
-- JavaScript
 - HTML
 - CSS
 - Express
 - Node.js
+- MongoDB
+- Mongoose
+- Oauth
+- Heroku
 
 # Getting Started
 
