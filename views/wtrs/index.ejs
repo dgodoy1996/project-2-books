@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<% if(user) { %>
+    <h2>WTR Books</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Name:</th>
+                <th>Author:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% wtrs.forEach(function(w) { %>
+                <tr>
+                    <td><%= w.name %></td>
+                    <td><%= w.author %></td>
+                    <td>
+                        <form action="/wtrs/<%= w._id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h2>Log in to view your books!</h2>
+<% } %>
+
+<%- include('../partials/footer') %>

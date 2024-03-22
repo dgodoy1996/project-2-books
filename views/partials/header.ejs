@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MyReads</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
@@ -12,7 +12,9 @@
       <% if (user) { %>
         <a href="/">HOME</a> |
         <a href="/books" <%= title === 'All Books' ? 'class="active"' : '' %>>READ BOOKS</a> |
-        <a href="/books/new" <%= title === 'Add Book' ? 'class="active"' : '' %>>ADD BOOK</a> |
+        <a href="/books/new" <%= title === 'Add Book' ? 'class="active"' : '' %>>ADD READ BOOK</a> |
+        <a href="/wtrs/new" <%= title === 'New Wtr Book' ? 'class="active"' : '' %>>ADD WTR BOOKS</a> |
+        <a href="/wtrs" <%= title === 'All Wtr Books' ? 'class="active"' : '' %>>WTR BOOKS</a> |
         <a href="/logout">LOG OUT</a>
       <% } else { %>
         <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

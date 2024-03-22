@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New WTR Book</h2>
+<form id="new-wtrs" action="/wtrs" method="POST">
+    <label>Book Name:
+        <input type="text" name="name">
+    </label><br>
+    <label>Author:
+        <input type="text" name="author">
+    </label><br>
+    <input type="submit" value="Add Book">
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>

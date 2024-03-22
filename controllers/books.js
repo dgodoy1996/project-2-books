@@ -5,7 +5,7 @@ module.exports = {
     new: newBook,
     create,
     show, 
-    delete: deleteBook
+    delete: deleteBook,
 }
 
 async function index(req, res) {
@@ -55,4 +55,3 @@ async function deleteBook(req, res) {
 
     res.redirect('/books')
 }
-

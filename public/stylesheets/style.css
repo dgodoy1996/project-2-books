@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #15cbef3c;
+  background-color: #15cbef10;
   margin: 0;
   height: 10vh;
   display: grid;
@@ -21,6 +21,7 @@ body > nav {
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+  font-size: 14px;
 }
 
 nav > a {
@@ -40,7 +41,7 @@ nav > a.active {
   cursor: default;
 }
 
-#new-book {
+#new-book, #new-wtrs {
   padding: 10px;
   display: grid;
   grid-gap: 10px;
@@ -49,7 +50,8 @@ nav > a.active {
 
 button,
 #edit-synopsis-form input[type="submit"],
-#new-book input[type="submit"]
+#new-book input[type="submit"],
+#new-wtrs input[type="submit"]
  {
   background-color: #d8eaed;
   border-radius: 5px;
@@ -73,6 +75,7 @@ button,
 
 #edit-synopsis-form input[type="submit"],
 #new-book button[type="submit"],
+#new-wtrs button[type="submit"],
 #add-synopsis-form input[type="submit"] {
   grid-column: span 2;
   width: 10rem;
@@ -101,8 +104,10 @@ h3 {
   font-weight: lighter;
 }
 
-p {
-  font-size: 25px;
+h4 {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px
 }
 
 #list a {
@@ -150,6 +155,7 @@ hr {
 }
 
 .login img {
+  margin-left: 10px;
   height: 30px;
 }
 
