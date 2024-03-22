@@ -24,7 +24,7 @@ My Reads is a great app that can track all your favorite reads! Just simply ente
 # Getting Started
 
 Click on the following link to view my game:
-
+https://my-reads-15e2d8dd6415.herokuapp.com/
 
 # Next Steps
 
